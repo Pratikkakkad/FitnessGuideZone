@@ -6,7 +6,8 @@ import {
   TouchableOpacity,
   StatusBar,
   TextInput,
-  ToastAndroid
+  ToastAndroid,
+  ScrollView
 } from "react-native";
 
 import Logo from "../Logo/Logo";
@@ -90,6 +91,7 @@ class Signup extends Component {
 
   render() {
     return (
+      <ScrollView>
       <View style={styles.container}>
         <StatusBar backgroundColor="#F57C00" barStyle="light-content" />
         <Logo />
@@ -161,6 +163,7 @@ class Signup extends Component {
           </TouchableOpacity>
         </View>
       </View>
+      </ScrollView>
     );
   }
 }

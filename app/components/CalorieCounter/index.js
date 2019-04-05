@@ -6,7 +6,8 @@ import {
   StatusBar,
   TouchableOpacity,
   TextInput,
-  ScrollView
+  ScrollView,
+  ToastAndroid
 } from "react-native";
 
 import RadioButton from "radio-button-react-native";
@@ -39,16 +40,30 @@ class CalorieCounter extends Component {
     var weight = parseFloat(this.state.weight);
     var result;
 
-    if (this.state.value == 0) {
-      result = parseInt(
-        weight * 13.397 + height * 4.799 - age * 5.677 + 88.362
+    if(age == "" || height =="" || weight == ""){
+      ToastAndroid.show(
+        "Fill All Field!",
+        ToastAndroid.SHORT
       );
-    } else if (this.state.value == 1) {
-      result = parseInt(weight * 10 + height * 6.25 - age * 5 - 161);
+    }else if(/[0-9]/.test(age) && /[0-9]/.test(height) && /[0-9]/.test(weight)){
+      if (this.state.value == 0) {
+        result = parseInt(
+          weight * 13.397 + height * 4.799 - age * 5.677 + 88.362
+        );
+      } else if (this.state.value == 1) {
+        result = parseInt(weight * 10 + height * 6.25 - age * 5 - 161);
+      }
+      this.setState({
+        calories: result
+      });
+    }else {
+      ToastAndroid.show(
+        "Enter Valid Values!",
+        ToastAndroid.SHORT
+      );
     }
-    this.setState({
-      calories: result
-    });
+
+    
   }
 
   render() {
