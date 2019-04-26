@@ -51,7 +51,7 @@ export default class Nutrition extends Component {
       ToastAndroid.SHORT,
       ToastAndroid.CENTER,
     ) :
-    fetch(`https://pratikapi.herokuapp.com/nutritoins/${Search}`)
+    fetch(`http://localhost:3000/nutritoins/${Search}`)
       .then(res => res.json())
       .then(res =>
         res == undefined

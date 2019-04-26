@@ -4,11 +4,15 @@ import {
   Container,
   Header,
   Content,
+  Body,
+  Title,
+  RIght,
   Tab,
   Tabs,
   List,
   ListItem,
   Right,
+  Button,
   Icon
 } from "native-base";
 
@@ -34,6 +38,22 @@ class Home extends Component {
     const password = navigation.getParam("password", "No-IDDefault");
     return (
       <View style={styles.container}>
+        <Header style={{ backgroundColor: "#f35300" }}
+          androidStatusBarColor="#F57C00">
+          <Body>
+            <Title>FitnessGuideZone</Title>
+          </Body>
+          <Right>
+            <Button
+              transparent
+              onPress={() => {
+                this.props.navigation.navigate("login");
+              }}
+            >
+              <Text style={{color:"#fff"}}>Log Out</Text>
+            </Button>
+          </Right>
+        </Header>
         <Tabs>
           <Tab
             style={{ backgroundColor: "#FFA726" }}

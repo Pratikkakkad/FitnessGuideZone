@@ -37,13 +37,6 @@ export default class WorkoutVideo extends Component {
         </Text>
         <VideoPlayer
           video={{ uri: './gif/giphy.gif' }}
-
-          duration={
-            this.state.video
-              .duration /* I'm using a hls stream here, react-native-video
-            can't figure out the length, so I pass it here from the vimeo config */
-          }
-          ref={r => (this.player = r)}
         />
         {/* <Button onPress={() => this.player.stop()} title="Stop" />
         <Button onPress={() => this.player.pause()} title="Pause" />

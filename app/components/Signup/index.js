@@ -55,7 +55,7 @@ class Signup extends Component {
       /^[A-Za-z]+$/.test(lname)
     ) {
       console.log("did mount");
-      fetch("https://pratikapi.herokuapp.com/users/signup", {
+      fetch("http://localhost:3000/users/signup", {
         method: "post",
         headers: {
           Accept: "application/json",
